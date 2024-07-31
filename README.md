@@ -68,3 +68,24 @@ Este projeto não só permitirá que você adicione uma função muito convenien
   ```bash
   cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 <arquivos>.c
 
+A função get_next_line() é considerada ter um comportamento indefinido se o arquivo apontado pelo descritor de arquivo mudar desde a última chamada enquanto read() não chegou ao final do arquivo.
+A get_next_line() também tem comportamento indefinido ao ler um arquivo binário, embora você possa implementar uma forma lógica de lidar com esse comportamento se desejar.
+Verifique se sua função ainda funciona se o valor de BUFFER_SIZE for 9999, 1 ou 10000000. Procure ler o mínimo possível a cada chamada da get_next_line(). Retorne a linha atual quando encontrar uma nova linha. Evite ler o arquivo inteiro e depois processar cada linha.
+Proibido:
+
+Não é permitido usar sua libft neste projeto.
+lseek() é proibido.
+Variáveis globais são proibidas.
+IV Parte Bônus
+Este projeto é direto e não permite bônus complexos. No entanto, se você completou a parte obrigatória, pode tentar a parte bônus.
+
+Requisitos da Parte Bônus:
+
+Desenvolva get_next_line() usando apenas uma variável estática.
+Sua get_next_line() deve gerenciar múltiplos descritores de arquivo simultaneamente. Por exemplo, se você puder ler dos descritores de arquivo 3, 4 e 5, você deve ser capaz de ler de um descritor diferente por chamada sem perder o fluxo de leitura de cada descritor ou retornar uma linha de outro descritor.
+Arquivos a Submeter:
+
+get_next_line_bonus.c
+get_next_line_bonus.h
+get_next_line_utils_bonus.c
+A parte bônus só será avaliada se a parte obrigatória estiver PERFEITA. Perfeita significa que a parte obrigatória foi integralmente feita e funciona sem falhas. Se todos os requisitos obrigatórios não forem atendidos, sua parte bônus não será avaliada.
